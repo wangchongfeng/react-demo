@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import Input from '../components/Input'
 import './Myform.less'
+import createForm from '../components/createForm'
+@createForm()
 class Myform extends Component {
   constructor(props) {
     super(props)
