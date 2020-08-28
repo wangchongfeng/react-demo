@@ -1,27 +1,34 @@
 
 import React, { Component } from 'react'
 import Input from '../components/Input'
-import './Myform.less'
 import createForm from '../components/createForm'
-@createForm()
+const nameRules = {required: true, message: 'please input username'}
+const passwordRules = {required: true, message: 'please input password'}
+@createForm
 class Myform extends Component {
   constructor(props) {
     super(props)
-    this.state ={
-      username: '',
-      password: ''
-    }
+    console.log(this.props.form)
   }
-
   submit = () => {
-    console.log(this.state.username)
+    const {getFieldsValue, validateFields} = this.props.form
+    validateFields((err, val) => {
+      if (err) {
+        alert(err)
+      } else {
+        console.log(getFieldsValue())
+      }
+    })
+  }
+  componentWillMount() {
+    this.props.form.setFieldsValue({username: 'default'})
   }
   render() {
-    const  { username, password} = this.state
+    const {getFieldDecorator} = this.props.form
     return (
       <div className="Myform" >
-        <Input value={username} placeholder="username" onChange={e=>this.setState({username: e.target.value})} />
-        <Input value={password} placeholder="password" onChange={e=>this.setState({password: e.target.value})} />
+        {getFieldDecorator('username', {rules: [nameRules]})(<Input  placeholder="username" />)}
+        {getFieldDecorator('password', {rules: [passwordRules]})(<Input  placeholder="password" />)}
         <button onClick={this.submit}>提交</button>
       </div>
 
