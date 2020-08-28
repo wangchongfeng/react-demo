@@ -30,7 +30,7 @@ export default function createForm(Comp) {
     validateFields = (cb) => {
       const err = []
       for (let field in this.options) {
-        if (this.state[field]) {
+        if (!this.state[field]) {
           err.push({[field]: this.options[field].rules[0].message})
         }
       }

@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
-import Input from '../components/Input'
-import createForm from '../components/createForm'
+import Input from '../../components/Input'
+import createForm from '../../components/createForm'
 const nameRules = {required: true, message: 'please input username'}
 const passwordRules = {required: true, message: 'please input password'}
 @createForm
@@ -14,9 +14,10 @@ class Myform extends Component {
     const {getFieldsValue, validateFields} = this.props.form
     validateFields((err, val) => {
       if (err) {
-        alert(err)
+        console.log(err)
       } else {
-        console.log(getFieldsValue())
+        console.log(val)
+        console.log(getFieldsValue)
       }
     })
   }

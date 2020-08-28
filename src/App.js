@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Myform from './pages/Myform'
+import Myform from './pages/Myform/index.js'
+import "antd/dist/antd.css"
 function App() {
   return (
     <div className="App">
