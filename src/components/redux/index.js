@@ -1,8 +1,8 @@
-import createStore from './createStroe'
+import createStore from './createStore'
 import applyMiddleware from './applyMiddleware' ;
-import composeReducer from './composeReducer' ;
-export default {
+import combineReducers from './combineReducers' ;
+export {
   createStore,
   applyMiddleware,
-  composeReducer
+  combineReducers
 }
